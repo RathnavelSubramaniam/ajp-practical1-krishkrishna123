@@ -15,12 +15,11 @@ class Point {
         return y;
     }
 }
-
 class Quadrilateral {
-    protected Point point1;
-    protected Point point2;
-    protected Point point3;
-    protected Point point4;
+    Point point1;
+    Point point2;
+    Point point3;
+    Point point4;
 
     public Quadrilateral(Point p1, Point p2, Point p3, Point p4) {
         this.point1 = p1;
@@ -29,7 +28,6 @@ class Quadrilateral {
         this.point4 = p4;
     }
 }
-
 class Trapezoid extends Quadrilateral {
 
     public Trapezoid(Point p1, Point p2, Point p3, Point p4) {
@@ -44,7 +42,6 @@ class Trapezoid extends Quadrilateral {
         return (base1 + base2) * height / 2.0;
     }
 }
-
 class Rectangle extends Quadrilateral {
 
     public Rectangle(Point p1, Point p2, Point p3, Point p4) {
@@ -58,28 +55,19 @@ class Rectangle extends Quadrilateral {
         return length * width;
     }
 }
-
 class Square extends Rectangle {
-
-    private double sideLength;
 
     public Square(Point p1, double sideLength) {
         super(
-            p1,
-            new Point(p1.getX() + sideLength, p1.getY()),
-            new Point(p1.getX() + sideLength, p1.getY() + sideLength),
-            new Point(p1.getX(), p1.getY() + sideLength)
+                p1,
+                new Point(p1.getX() + sideLength, p1.getY()),
+                new Point(p1.getX() + sideLength, p1.getY() + sideLength),
+                new Point(p1.getX(), p1.getY() + sideLength)
         );
-
-        this.sideLength = sideLength;
-    }
-
-    @Override
-    public double calculateArea() {
-        return sideLength * sideLength;
     }
 }
 
+// Main class
 public class Practical1 {
 
     public static void main(String[] args) {
@@ -98,4 +86,3 @@ public class Practical1 {
         System.out.println("Area of square = " + square.calculateArea());
     }
 }
-
